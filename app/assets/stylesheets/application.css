@@ -1,0 +1,28 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.fixed{position: fixed;}
+.place_width {width: 476px;}
+.container {font-family: Arial, Helvetica;}
+.index a {color: black; font-size: 18px;}
+.index a:hover {color: black; text-decoration: none; background-color: white;}
+.filter {position: fixed; width: 150px; height: 270px; margin-top: -42px; margin-left: 1px; background-color: rgba(161, 161, 161, .2); padding: 11px; -moz-border-radius: 15px;
+border-radius: 15px;}
+.filter h3 {font-size: 15px; }
+
+/*.tborder { border-bottom: 1px solid gray;}*/
+.tborder:hover { background-color: rgba(54, 208, 255, .1); }
+
+.listItems { font-size: 12px; color: #848484; vertical-align: bottom;}
+.listData	{ font-size: 15px; padding-left: 5px; vertical-align: bottom;}
+#places { width: 750px; margin: auto;}

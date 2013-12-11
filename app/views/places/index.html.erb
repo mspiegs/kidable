@@ -1,0 +1,43 @@
+<h1 style="margin-left: 193px;">Kid Friendly Places</h1>
+<div class="filter">
+	<h3>Select City:</h3>
+	<%= form_tag places_path, method: 'get', id: "selections" do %>
+	<% if @selected_filters == [] %>
+		<%= check_box_tag 'filter[]', "San Diego" %>  San Diego<br>
+		<%= check_box_tag 'filter[]', "Los Angeles" %>  Los Angeles<br>
+		<%= check_box_tag 'filter[]', "Phoenix" %>  Phoenix<br>
+	<% else %>
+		<% @selected_filters.each do |filter| %>
+			<%= check_box_tag 'filter[]', "#{filter}", @selected_filters.include?(filter) %>  <%= filter %><br>
+
+		<% end %>
+	<% end %>
+
+	<h3>Select Place Type:</h3>
+	<% if @selected_types == [] %>
+		<%= check_box_tag 'filter_types[]', "Restaurant" %>  Restaurant<br>
+		<%= check_box_tag 'filter_types[]', "Hotel" %>  Hotel<br>
+		<%= check_box_tag 'filter_types[]', "Attraction" %>  Attraction<br>
+	<% else %>
+		<% @selected_types.each do |filtertype| %>
+			<%= check_box_tag 'filter_types[]', "Restaurant", @selected_types.include?(filtertype) %>  <%= filtertype %><br>
+
+		<% end %>
+	<% end %>
+	<br>
+		<%= submit_tag 'Submit', class: "btn btn-xs btn-primary", name: nil %>
+	<% end %>
+
+	
+</div>
+
+<div style="margin-left: 200px;">
+<%= form_tag places_path, method: 'get', id: "places_search" do %>
+        	<p>
+    				<%= text_field_tag :search, params[:search] %>
+    				<%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+  				</p>
+				<% end %>
+			</div>
+
+<div id="places"><%= render 'places' %></div>

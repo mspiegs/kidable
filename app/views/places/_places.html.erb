@@ -1,0 +1,65 @@
+<% @places.each do |place| %>
+	<table class="index" style="margin: auto; width: 750px; ">
+		<tr style="border-bottom: 1px solid black;">
+			<th class="place_width"><%= link_to place.name, place %><% if current_user.admin? %>     <%= link_to "Edit", edit_place_path(place) %><% end %></th>
+			<th>
+				<% if place.ratings != [] %>
+					<% if place.average_rating == 4 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
+					<% elsif place.average_rating == 3 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
+					<% elsif place.average_rating == 5 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
+					<% elsif place.average_rating >= 2.75 && place.average_rating <= 3 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
+					<% elsif place.average_rating > 2.25 && place.average_rating <= 2.74 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-half.png" %>
+	
+					<% elsif place.average_rating > 1.5 && place.average_rating <= 2 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
+						
+					<% elsif place.average_rating <= 1.5 && place.average_rating > 1.00 %>
+						<%= image_tag "star-on.png" %><%= image_tag "star-half.png" %>
+					<% end %>
+				<% end %>
+			</th>
+			<th style="text-align: right; "><%= place.scoreme %></th>
+		</tr>
+		<table class="tborder" style="margin: auto; width: 750px; margin-top: -1px;">
+			<tr style="height: 27px; vertical-align: top;"><td><%= place.place_type %></td></tr>
+			<tr>
+				<td style="text-align: left; width: 25%;"><%= image_tag place.avatar.url(:thumb) %></td>
+				<td style="width: 75%; vertical-align: top;">
+						<table style="width: 100%;">
+							<tr>
+								<td class="listItems" style="width: 50%; text-align: left;"><%= place.address %></td>
+								<td class="listItems" style="width: 10%; text-align: right;">score:</td><td class ="listData" style="width: 40%;"><%= place.score %></td>
+							</tr>
+							<tr>
+								<td class="listItems" style="text-align: left; vertical-align: top;"><%= place.city %>, <%= place.state %> <%= place.zip %></td>
+								<td class="listItems" style="text-align: right;">city:</td><td class ="listData" ></td>
+							</tr>
+							<tr>
+								<td class="listItems" style="text-align: left; vertical-align: top;"><%= place.phone %></td>
+							</tr>	
+
+						</table>	
+				</td>
+			</tr>
+			
+			<tr style="height: 10px;"><td></td></tr>
+			<% if place.comments.last != nil %>
+					<tr><td colspan="3" style="background-color: rgba(280, 230, 80, .3);"><%= place.comments.last.comment_title %></td></tr>
+					<tr><td colspan="3" style="background-color: rgba(280, 230, 80, .3);">"<%= place.comments.last.comment %>"</td></tr>
+			<% end %>
+		</table>
+
+	</table>
+	<br>
+	<br>
+	<% if place.ratings != [] %>
+		<div id="collapse" data-show="<%= place.average_rating %>"></div>
+	<% end %>
+<% end %>
+<div style="margin-left: 200px;"><%= debug(params) if Rails.env.development? %></div>
+

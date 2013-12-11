@@ -1,0 +1,24 @@
+
+<%= @place.name %><br>
+<%= @place.score %><br>
+<% if @place.ratings != [] %>
+	<p>Average Rating</p>
+<% else %>
+	<p>No ratings yet</p>
+<% end %>
+<div id="star"></div>
+
+<p>Your Rating</p>
+<div id="user_star"></div>
+
+<% @place.comments.each do |comment| %>
+	<%= comment.comment_title %>, <%= comment.comment %><br>
+<% end %>
+<%= link_to "New Comment", new_place_comment_path(@place) %>
+
+<script type='text/javascript'>
+	$(document).ready(function() {
+		setupPlace(<%= @place.average_rating %>, <%= @rating.score %>, <%= @rating.id %>);
+	});
+
+</script>

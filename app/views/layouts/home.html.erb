@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kidable</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<% if user_signed_in? %>
+<nav class="navbar navbar-inverse" style="border-radius: 0;" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Brand</a>
+  </div>
+  <p class="navbar-text">Signed in as <%= current_user.username %></p>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+    
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
+<% else %>
+
+<nav class="navbar navbar-inverse" style="border-radius: 0;" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Brand</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <%= link_to "Sign in", new_user_session_path, class: "btn btn-default navbar-btn" %>
+    
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
+<% end %>
+<body>
+  <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    <% end %>
+  <%= yield %>
