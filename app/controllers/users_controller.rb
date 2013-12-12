@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 
 	private
 
-		
+
 		def check_admin
-			redirect_to place_path and return unless current_user.admin?
+			redirect_to places_path and return unless current_user.admin?
 		end
 
 
