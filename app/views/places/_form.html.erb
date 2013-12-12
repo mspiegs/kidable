@@ -1,60 +1,17 @@
-<%= form_for(@place, class: "form-horizontal") do |f| %>
-  <% if @place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@place.errors.count, "error") %> prohibited this property from being saved:</h2>
+<%= simple_form_for @place, html: { class: "horizontal-form"} do |f| %>
+<table>
 
-      <ul>
-      <% @place.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <tr><td style="width: 200px;"><%= f.input :name, input_html: {style: 'width: 200px'} %></td></tr>
+  <tr><td><%= f.input :address, input_html: { style: 'width: 200px'} %></td></tr>
+  <tr><td><%= f.input :city, input_html: { style: 'width: 200px'} %></td></tr>
+  <tr><td><%= f.input :state, collection: us_states, input_html: { style: 'width: 55px'} %></td><td><%= f.input :zip, input_html: { style: 'width: 100px'} %></td></tr>
+  <tr><td><%= f.input :zip, input_html: { style: 'width: 200px'} %></td></tr>
 
-  <div class="field form-group">
-  	<%= f.label :name%>
-  	<%= f.text_field :name %>
-  </div><br>
-  <div class="field form-group">
-  	<%= f.label :address %>
-  	<%= f.text_field :address  %>
-  </div>
-  <br>
-  <div class="field form-group">
-  	<%= f.label :city %>
-  	<%= f.text_field :city  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :state %>
-  	<%= f.text_field :state  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :zip %>
-  	<%= f.text_field :zip  %>
-  </div>
-
-  <div class="field form-group">
-  	<%= f.label :phone %>
-  	<%= f.text_field :phone  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :kid_menu %>
-  	<%= f.check_box :kid_menu  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :score %>
-  	<%= f.text_field :score  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :place_type %>
-  	<%= f.select :place_type, options_for_select([["Restaurant", "Restaurant"], ["Hotel", "Hotel"], ["Attraction", "Attraction"], ["Park", "Park"]])  %>
-  </div>
-  <div class="field form-group">
-  	<%= f.label :avatar %>
-  	<%= f.file_field :avatar %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <tr><td><%= f.input :phone, input_html: { style: 'width: 200px'} %></td></tr>
+  <tr><td><%= f.input :kid_menu, as: :boolean %></td></tr>
+  <tr><td><%= f.input :score %></td></tr>
+  <tr><td><%= f.input :place_type, collection: types %></td></tr>
+  <tr><td><%= f.input :avatar, as: :file %></td></tr>
+  <tr><td><%= f.button :submit %></td></tr>
+</table>
 <% end %>

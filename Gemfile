@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'paperclip'
 gem 'devise'
+gem 'fancybox-rails'
+gem 'simple_form'
 
 # Use sqlite3 as the database for Active Record
 group :development do

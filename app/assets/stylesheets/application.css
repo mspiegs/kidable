@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fancybox
  *= require_tree .
  */
 .fixed{position: fixed;}
@@ -26,3 +27,6 @@ border-radius: 15px;}
 .listItems { font-size: 12px; color: #848484; vertical-align: bottom;}
 .listData	{ font-size: 15px; padding-left: 5px; vertical-align: bottom;}
 #places { width: 750px; margin: auto;}
+
+/*STYLE FOR NEW PLACE MODAL WINDOW*/
+.new_modal { visibility: none }

@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require raty.min.js
 //= require bootstrap/bootstrap
 //= require turbolinks
 //= require_tree .
 $(document).ready(function(){
+
 
 	$(window).scroll(function(){
 	    $(".filter").css("top",Math.max(48,141-$(this).scrollTop()));
