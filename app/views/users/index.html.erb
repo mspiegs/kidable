@@ -1,0 +1,13 @@
+<table>
+	<tr>
+		<th>User Name</th>
+		<th>Admin?</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.username %></td>
+			<td><%= user.admin %></td>
+		</tr>
+
+	<% end %>
+</table>
