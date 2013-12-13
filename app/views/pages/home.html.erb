@@ -1,5 +1,5 @@
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <div class="container">
     <h1>Welcome to Kid Friendly</h1>
     <p>Your only destination for assuring that you are not taking your kids some place where you and your entire family will be subject to dirty looks from people who decided to never have kids. :)</p>
@@ -9,5 +9,48 @@
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
     <% end %>
   </div>
+</div> -->
+<div class="glyphicon glyphicon-search"></div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "P1020799.JPG" %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+
+    <div class="item">
+      <%= image_tag "P1020799.JPG" %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+
+    <div class="item">
+      <%= image_tag "P1020799.JPG" %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
 

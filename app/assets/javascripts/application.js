@@ -19,6 +19,7 @@
 //= require_tree .
 $(document).ready(function(){
 
+	$('.carousel').carousel();
 
 	$(window).scroll(function(){
 	    $(".filter").css("top",Math.max(48,141-$(this).scrollTop()));
