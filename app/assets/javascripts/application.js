@@ -21,6 +21,10 @@ $(document).ready(function(){
 
 	$('.carousel').carousel();
 
+	$('#myModal').modal({
+		show: false
+	});
+
 	$(window).scroll(function(){
 	    $(".filter").css("top",Math.max(48,141-$(this).scrollTop()));
 		});
