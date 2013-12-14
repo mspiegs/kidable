@@ -68,8 +68,8 @@
 </div><!-- /.modal -->
 	<% end %>
 
-
-<% @places.each do |place| %>
+<% @sorted = @places.sort_by { |i| i.created_at } %>
+<% @sorted.each do |place| %>
 	<table class="index" style="margin: auto; width: 750px; ">
 		<tr style="border-bottom: 1px solid black;">
 			<th class="place_width"><%= link_to place.name, place %><% if current_user.admin? %>     <%= link_to "Edit", edit_place_path(place) %><% end %></th>
