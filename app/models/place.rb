@@ -20,15 +20,14 @@ class Place < ActiveRecord::Base
 	end
 
 	def scoreme
-		self.kid_menu ? kid_menu = 100 : kid_menu = 0
+		kid_menu = self.kid_menu ? 80 : 20
 
-		boosters = self.boosters ? 75 : 0
-		high_chairs = self.high_chairs ? 100 : 0
-		changing_table = self.changing_table ? 80 : 0
-
+		self.boosters ? boosters = 50 : boosters = 25
+		self.high_chairs ? high_chairs = 100 : high_chairs = 5
+		self.changing_table ? changing_table = 90 : changing_table = 15
 		noise = self.noise_level.to_i * 20
-
-		total = (kid_menu + boosters + noise + high_chairs + changing_table + 55) / 5
+		total = kid_menu + boosters + noise + high_chairs + changing_table
+		return (Float(total)/420.0) * 100 
 
 
 	end
