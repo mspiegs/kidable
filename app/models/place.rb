@@ -26,8 +26,14 @@ class Place < ActiveRecord::Base
 		self.high_chairs ? high_chairs = 100 : high_chairs = 5
 		self.changing_table ? changing_table = 90 : changing_table = 15
 		noise = self.noise_level.to_i * 20
-		total = kid_menu + boosters + noise + high_chairs + changing_table
-		return (Float(total)/420.0) * 100 
+		if self.average_rating == 0.0
+			rating = 25
+		else 
+			rating = self.average_rating * 40.0
+		end
+		total = kid_menu + boosters + noise + high_chairs + changing_table + rating
+
+		return (Float(total)/620.0) * 100 
 
 
 	end
