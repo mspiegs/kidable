@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
 	before_filter :set_place, only: [:show, :destroy, :update, :edit, :scoreme]
 
 	def index
+			@place = Place.new
 			@search_terms = (params[:search].present? ? params[:search] : [])
 			@selected_filters = (params[:filter].present? ? params[:filter] : [])
 			@selected_types = (params[:filter_types].present? ? params[:filter_types] : [])

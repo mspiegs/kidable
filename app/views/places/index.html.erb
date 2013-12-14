@@ -32,12 +32,16 @@
 </div>
 
 <div style="margin-left: 200px;">
-<%= form_tag places_path, method: 'get', id: "places_search" do %>
-        	<p>
-    				<%= text_field_tag :search, params[:search] %>
-    				<%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
-  				</p>
-				<% end %>
-			</div>
+	<%= form_tag places_path, method: 'get', id: "places_search",  html: { style: 'width: 200px'} do %>
+  	<p>
+			<%= text_field_tag :search, params[:search], html: { style: 'width: 200px'} %>
+			<%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+			<button class="btn btn-primary btn-sm" style="margin-left: 414px;" data-toggle="modal" data-target="#myModal">
+  New Place
+	</button>
+		</p>
+	<% end %>
+	
+</div>
 
 <div id="places"><%= render 'places' %></div>
