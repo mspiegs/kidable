@@ -3,6 +3,8 @@ class Place < ActiveRecord::Base
 	has_many :comments
 	has_many :ratings
 
+	after_save :scoreme
+
 	scope :san_diego, -> { where("city like ?", "%San Diego%") }
 
 	validates :address, presence: true
@@ -33,7 +35,8 @@ class Place < ActiveRecord::Base
 		end
 		total = kid_menu + boosters + noise + high_chairs + changing_table + rating
 
-		return (Float(total)/620.0) * 100 
+		score = (Float(total)/620.0) * 100 
+		self.update_columns(score: score)
 
 
 	end
