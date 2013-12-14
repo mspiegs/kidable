@@ -68,7 +68,7 @@
 </div><!-- /.modal -->
 	<% end %>
 
-<% @sorted = @places.sort_by { |i| i.created_at } %>
+<% @sorted = @places.sort_by { |i| -i.scoreme } %>
 <% @sorted.each do |place| %>
 	<table class="index" style="margin: auto; width: 750px; ">
 		<tr style="border-bottom: 1px solid black;">
