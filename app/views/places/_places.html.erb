@@ -74,6 +74,8 @@
 		<tr style="border-bottom: 1px solid black;">
 			<th class="place_width"><%= link_to place.name, place %><% if current_user.admin? %>     <%= link_to "Edit", edit_place_path(place) %><% end %></th>
 			<th>
+
+				<!-- Determines number of stars to display -->
 				<% if place.ratings != [] %>
 					<% if place.average_rating == 4 %>
 						<%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %><%= image_tag "star-on.png" %>
@@ -93,9 +95,12 @@
 						<%= image_tag "star-on.png" %><%= image_tag "star-half.png" %>
 					<% end %>
 				<% end %>
+
 			</th>
 			<th style="text-align: right; "><%= place.score.to_i %></th>
 		</tr>
+
+		<!-- Table for main body of each place -->
 		<table class="tborder" style="margin: auto; width: 750px; margin-top: -1px;">
 			<tr style="height: 27px; vertical-align: top;"><td><%= place.place_type %></td></tr>
 			<tr>
@@ -118,6 +123,7 @@
 				</td>
 			</tr>
 			
+			<!-- Displays last comment on the index list -->
 			<tr style="height: 10px;"><td></td></tr>
 			<% if place.comments.last != nil %>
 					<tr><td colspan="3" style="background-color: rgba(280, 230, 80, .3);"><%= place.comments.last.comment_title %></td></tr>
@@ -128,9 +134,7 @@
 	</table>
 	<br>
 	<br>
-	<% if place.ratings != [] %>
-		<div id="collapse" data-show="<%= place.average_rating %>"></div>
-	<% end %>
-<% end %>
+	
+<% end %>     <!-- Each statement close -->
 <div style="margin-left: 200px;"><%= debug(params) if Rails.env.development? %></div>
 
