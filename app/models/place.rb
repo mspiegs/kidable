@@ -2,8 +2,10 @@ class Place < ActiveRecord::Base
 	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "200x200>" }
 	has_many :comments
 	has_many :ratings
+	geocoded_by :address_create
 
 	after_save :scoreme
+	after_validation :geocode
 
 	scope :san_diego, -> { where("city like ?", "%San Diego%") }
 
@@ -39,6 +41,10 @@ class Place < ActiveRecord::Base
 		self.update_columns(score: score)
 
 
+	end
+
+	def address_create
+		self.address + ' ' + self.city + ', ' + self.state
 	end
 
 end

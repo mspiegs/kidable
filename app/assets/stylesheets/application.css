@@ -13,7 +13,7 @@
  *= require_tree .
  */
 .fixed{position: fixed;}
-.place_width {width: 476px;}
+.place_width {width: 420px;}
 .container {font-family: Arial, Helvetica;}
 .index a {color: black; font-size: 18px;}
 .index a:hover {color: black; text-decoration: none; background-color: white;}
@@ -21,12 +21,15 @@
 border-radius: 15px;}
 .filter h3 {font-size: 15px; }
 
+/*Google Maps section for main list page*/
+.map { float: right; width: 250px; height: 250px; margin-top: 6px; margin-right: 77px;}
+
 /*.tborder { border-bottom: 1px solid gray;}*/
 .tborder:hover { background-color: rgba(54, 208, 255, .1); }
 
 .listItems { font-size: 12px; color: #848484; vertical-align: bottom;}
 .listData	{ font-size: 15px; padding-left: 5px; vertical-align: bottom;}
-#places { width: 750px; margin: auto;}
+#places { width: 550px; margin: auto; margin-left: 199px;}
 
 /*STYLE FOR NEW PLACE MODAL WINDOW*/
 .new_modal { position: absolute; z-index: 5; width: 100%; height: 100%; background-color: rgba(255, 230, 80, .3)  }

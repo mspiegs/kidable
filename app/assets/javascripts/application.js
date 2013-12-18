@@ -16,6 +16,8 @@
 //= require raty.min.js
 //= require bootstrap/bootstrap
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 $(document).ready(function(){
 

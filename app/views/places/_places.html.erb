@@ -70,7 +70,7 @@
 
 <% @sorted = @places.sort_by { |i| -i.score } %>
 <% @sorted.each do |place| %>
-	<table class="index" style="margin: auto; width: 750px; ">
+	<table class="index" style="margin: auto; width: 550px; ">
 		<tr style="border-bottom: 1px solid black;">
 			<th class="place_width"><%= link_to place.name, place %><% if current_user.admin? %>     <%= link_to "Edit", edit_place_path(place) %><% end %></th>
 			<th>
@@ -100,8 +100,10 @@
 			<th style="text-align: right; "><%= place.score.to_i %></th>
 		</tr>
 
+
 		<!-- Table for main body of each place -->
 		<table class="tborder" style="margin: auto; width: 750px; margin-top: -1px;">
+
 			<tr style="height: 27px; vertical-align: top;"><td><%= place.place_type %></td></tr>
 			<tr>
 				<td style="text-align: left; width: 25%;"><%= image_tag place.avatar.url(:thumb) %></td>
@@ -134,7 +136,10 @@
 	</table>
 	<br>
 	<br>
+
 	
 <% end %>     <!-- Each statement close -->
+
+
 <div style="margin-left: 200px;"><%= debug(params) if Rails.env.development? %></div>
 
