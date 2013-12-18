@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210192603) do
+ActiveRecord::Schema.define(version: 20131218000502) do
 
   create_table "comments", force: true do |t|
     t.text     "comment"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20131210192603) do
     t.datetime "avatar_updated_at"
     t.string   "place_type"
     t.string   "phone"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "ratings", force: true do |t|
