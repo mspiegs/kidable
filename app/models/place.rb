@@ -5,7 +5,7 @@ class Place < ActiveRecord::Base
 	geocoded_by :address_create
 
 	after_save :scoreme
-	after_save :geocode
+	after_validation :geocode
 
 	scope :san_diego, -> { where("city like ?", "%San Diego%") }
 

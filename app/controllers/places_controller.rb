@@ -18,6 +18,11 @@ class PlacesController < ApplicationController
 			else
 				params[:filter] || params[:filter_types] ? @places = Place.where(city: params[:filter], place_type: params[:filter_types]) : @places = Place.all
 			end
+
+			@hash = Gmaps4rails.build_markers(@places) do |place, marker|
+  			marker.lat place.latitude
+  			marker.lng place.longitude
+  		end
 			
 
 
