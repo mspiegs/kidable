@@ -12,6 +12,10 @@
  *= require fancybox
  *= require_tree .
  */
+
+ /*form elements*/
+label{ width: 75px; float: left; text-align: right; display: block; margin-right: 5px;}
+
 .fixed{position: fixed;}
 .place_width {width: 420px;}
 .container {font-family: Arial, Helvetica;}
