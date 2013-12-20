@@ -20,6 +20,7 @@
 //= require gmaps/google
 //= require_tree .
 $(document).ready(function(){
+	alert('hello');
 
 	$('.carousel').carousel();
 
